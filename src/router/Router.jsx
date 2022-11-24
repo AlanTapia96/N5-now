@@ -1,14 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import CartContainer from "../components/cart/CartContainer";
 import ProductsContainer from "../components/products/ProductsContainer";
-// import { Navbar } from "../navbar/Navbar";
+import { NavbarComp as Navbar } from "../components/navbar/Navbar";
 
 export default function Router() {
   return (
     <BrowserRouter>
-      {/* <Navbar /> */}
+      <Navbar/>
       <Routes>
         <Route path="/products" element={<ProductsContainer />} />
-        <Route path="/cart" element={<ProductsContainer />} />
+        <Route path="/cart" element={<CartContainer />} />
       </Routes>
     </BrowserRouter>
   );
