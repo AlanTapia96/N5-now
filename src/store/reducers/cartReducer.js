@@ -19,7 +19,7 @@ export function cartReducer(state = { cart: [] }, action) {
             cart: [...state.cart, { ...newProduct, amount: 1 }],
           };
     }
-    case "REMOVE_ONE_FROM_CART": {
+    case "REMOVE_ONE": {
       const productToDelte = state.cart.find(
         (product) => product.id === action.payload
       );
@@ -38,7 +38,7 @@ export function cartReducer(state = { cart: [] }, action) {
             cart: state.cart.filter((product) => product.id !== action.payload),
           };
     }
-    case "REMOVE_ALL_FROM_CART": {
+    case "REMOVE_ALL": {
       return {
         ...state,
         cart: state.cart.filter((product) => product.id !== action.payload),
