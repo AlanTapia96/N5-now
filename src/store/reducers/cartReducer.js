@@ -1,51 +1,47 @@
-export function cartReducer(state = { cart: [] }, action) {
+export function cartReducer(state = { cart: [], total: 0 }, action) {
+  const currentProduct = action.payload;
+  // console.log(currentProduct);
   switch (action.type) {
     case "ADD_TO_CART": {
-      const newProduct = action.payload;
-      const productInCart = state.cart.find(
-        (product) => product.id === newProduct.id
+      const isProductInCart = state.cart.find(
+        (product) => product.id === currentProduct.id
       );
-      return productInCart
+      const price = currentProduct.amount * currentProduct.price;
+      return isProductInCart
         ? {
             ...state,
             cart: state.cart.map((product) =>
-              product.id === newProduct.id
-                ? { ...product, amount: product.amount + 1 }
+              product.id === currentProduct.id
+                ? {
+                    ...product,
+                    amount: product.amount + currentProduct.amount,
+                    totalPrice: product.totalPrice + price,
+                  }
                 : product
             ),
+            total: state.total + price,
           }
         : {
             ...state,
-            cart: [...state.cart, { ...newProduct, amount: 1 }],
+            cart: [
+              ...state.cart,
+              { ...currentProduct, amount: 1, totalPrice: price },
+            ],
+            total: state.total + price,
           };
     }
-    case "REMOVE_ONE": {
-      const productToDelte = state.cart.find(
-        (product) => product.id === action.payload
+    case "REMOVE_PRODUCT": {
+      const product = state.cart.find(
+        (product) => product.id === currentProduct.id
       );
-
-      return productToDelte > 1
-        ? {
-            ...state,
-            cart: state.cart.map((product) =>
-              product.id === action.payload
-                ? { ...product, amount: product.amount - 1 }
-                : item
-            ),
-          }
-        : {
-            ...state,
-            cart: state.cart.filter((product) => product.id !== action.payload),
-          };
-    }
-    case "REMOVE_ALL": {
       return {
         ...state,
-        cart: state.cart.filter((product) => product.id !== action.payload),
+        total: state.total - product.totalPrice,
+        cart: state.cart.filter((product) => product.id !== currentProduct.id),
       };
     }
     case "CLEAN_CART":
-      return [];
+      return { cart: [], total: 0 };
 
     default:
       return state;

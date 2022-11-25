@@ -1,8 +1,16 @@
+import products from "./products.json";
 const productService = {};
-const apiUrl = "./src/data/products.json";
 
-productService.getProducts = async function () {
-  return await fetch(`${apiUrl}`).then((res) => res.json());
-};
+const apiUrl = "";
+
+// productService.getProducts = async function () {
+//   return await fetch(`${apiUrl}`)
+//     .then((res) => res.json())
+// };
+
+productService.getProducts = () =>
+  new Promise((resolve, reject) => {
+    resolve(products);
+  }).then(res => res.products);
 
 export default productService;

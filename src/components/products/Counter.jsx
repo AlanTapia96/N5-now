@@ -1,33 +1,14 @@
-const Counter = ({ stock, setStock, amountToBuy, setAmountToBuy }) => {
-  const handleAmount = {
-    increase: () => {
-      if (stock !== 0) {
-        setAmountToBuy(amountToBuy + 1);
-        setStock(stock - 1);
-      }
-    },
-    decrease: () => {
-      if (amountToBuy > 0) {
-        setAmountToBuy(amountToBuy - 1);
-        setStock(stock + 1);
-      }
-    },
-  };
-
+const Counter = ({ stock, amount, onAmount }) => {
   return (
     <div>
-      <button
-        type="button"
-        disabled={amountToBuy === 0}
-        onClick={handleAmount.decrease}
-      >
+      <button type="button" disabled={amount === 0} onClick={onAmount.decrease}>
         -
       </button>
-      {amountToBuy}
+      {amount}
       <button
         type="button"
-        disabled={stock === 0}
-        onClick={handleAmount.increase}
+        disabled={stock <= amount}
+        onClick={onAmount.increase}
       >
         +
       </button>

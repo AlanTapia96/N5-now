@@ -1,15 +1,17 @@
 export const productReducer = (state = [], action) => {
-  if (action.type === "init") {
+  if (action.type === "INIT") {
     return action.payload;
   }
-  return state;
-};
+  if (action.type === "UPDATE_AMOUNT") {
+    const currentProduct = action.payload;
+    return state.map((product) =>
+      product.id === currentProduct.id
+        ? { ...product, stock: product.stock + currentProduct.amount }
+        : product
+    );
+  }
 
-export const initProducts = (products) => {
-  return {
-    type: "init",
-    payload: products,
-  };
+  return state;
 };
 
 //   if (action.type === "created") {

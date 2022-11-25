@@ -3,9 +3,9 @@ export const addToCart = (product) => ({
   payload: product,
 });
 
-export const delFromCart = (product, all = false) =>
-  all
-    ? { type: "REMOVE_ALL", payload: product }
-    : { type: "REMOVE_ONE", payload: product };
+export const removeProduct = (product) => ({
+  type: "REMOVE_PRODUCT",
+  payload: product,
+});
 
-export const clearCart = () => ({ type: "CLEAR_CART" });
+export const cleanCart = () => ({ type: "CLEAN_CART" });
