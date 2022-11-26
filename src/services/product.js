@@ -1,7 +1,7 @@
 import products from "./products.json";
 const productService = {};
 
-const apiUrl = "";
+// const apiUrl = "";
 
 // productService.getProducts = async function () {
 //   return await fetch(`${apiUrl}`)
@@ -10,7 +10,9 @@ const apiUrl = "";
 
 productService.getProducts = () =>
   new Promise((resolve, reject) => {
-    resolve(products);
-  }).then(res => res.products);
+    setTimeout(() => {
+      resolve(products);
+    }, 4000);
+  }).then((res) => res.products);
 
 export default productService;

@@ -1,24 +1,16 @@
-import { useState } from "react";
 import { useSelector } from "react-redux";
-import ProductCard from "../products/ProductCard";
-import ButtonDeleteAll from "./ButtonDeleteAll";
-import ButtonRemoveProduct from "./ButtonRemoveProduct";
+import ButtonCleanCart from "./ButtonCleanCart";
+import CartList from "./CartList";
 
 const CartContainer = () => {
   const { cart } = useSelector((state) => state.cart);
-  console.log(cart);
 
   return (
-    <>
+    <div className="cart-container">
       <h2>Cart</h2>
-      <ButtonDeleteAll />
-      {cart.map((product, i) => (
-        <div key={i}>
-          <ProductCard product={product} />
-          <ButtonRemoveProduct product={product} />
-        </div>
-      ))}
-    </>
+      <ButtonCleanCart />
+      <CartList products={cart} />
+    </div>
   );
 };
 

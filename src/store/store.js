@@ -12,4 +12,8 @@ const store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
+store.subscribe(() => {
+  localStorage.setItem("cartStorage", JSON.stringify(store.getState().cart));
+});
+
 export default store;

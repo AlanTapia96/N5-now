@@ -1,0 +1,35 @@
+.button-cart-container {
+  position: absolute;
+  right: 1.5rem;
+  background-color: transparent;
+}
+
+.empty,
+.notEmpty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  padding-bottom: 0.1em;
+  width: 1em;
+  height: 1em;
+  top: -0.6em;
+  left: -0.6em;
+  border-radius: 100%;
+}
+
+.notEmpty {
+  background-color: rgb(5, 102, 5);
+  color: white;
+}
+
+.empty {
+  background-color: red;
+  color: white;
+}
+
+.buttonCant {
+  position: relative;
+  font-size: 0.7em;
+  margin-bottom: 0;
+}

@@ -1,10 +1,22 @@
+import { useContext } from "react";
 import { useDispatch } from "react-redux";
 import { removeProduct } from "../../store/actions/cartActions";
+import { NotifContext } from "../context/NotifContext";
 
 const ButtonRemoveProduct = ({ product }) => {
   const dispatch = useDispatch();
+  const notify = useContext(NotifContext);
 
-  return <button onClick={() => dispatch(removeProduct(product))}>x</button>;
+  const handleCleanCart = () => {
+    dispatch(removeProduct(product));
+    notify("Product removed");
+  };
+
+  return (
+    <button className="remove-product" onClick={() => handleCleanCart()}>
+      Remove product
+    </button>
+  );
 };
 
 export default ButtonRemoveProduct;

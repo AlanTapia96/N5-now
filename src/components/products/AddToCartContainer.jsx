@@ -20,7 +20,7 @@ const AddToCartContainer = ({ product }) => {
   };
 
   return (
-    <>
+    <div className="add-to-cart">
       <Counter stock={stock} amount={amount} onAmount={handleAmount} />
       <AddToCartButton
         product={product}
@@ -28,7 +28,7 @@ const AddToCartContainer = ({ product }) => {
         stock={stock}
         setAmount={setAmount}
       />
-    </>
+    </div>
   );
 };
 

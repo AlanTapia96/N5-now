@@ -1,6 +1,14 @@
-export function cartReducer(state = { cart: [], total: 0 }, action) {
+const cartStorage =
+  localStorage.getItem("cartStorage") !== null
+    ? JSON.parse(localStorage.getItem("cartStorage"))
+    : { cart: [], total: 0 };
+
+console.log("holas");
+
+const initialState = cartStorage;
+
+export function cartReducer(state = initialState, action) {
   const currentProduct = action.payload;
-  // console.log(currentProduct);
   switch (action.type) {
     case "ADD_TO_CART": {
       const isProductInCart = state.cart.find(
@@ -29,6 +37,8 @@ export function cartReducer(state = { cart: [], total: 0 }, action) {
             ],
             total: state.total + price,
           };
+
+      localStorage.setItem();
     }
     case "REMOVE_PRODUCT": {
       const product = state.cart.find(

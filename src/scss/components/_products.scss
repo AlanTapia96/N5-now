@@ -1,8 +1,12 @@
+@import "../abstracts/mixins";
+
 .products-container {
+  max-width: var(--max-width);
   display: grid;
   gap: 1rem;
   grid-auto-rows: 22rem;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+  margin: 1.5rem auto;
 }
 
 .product {
@@ -12,12 +16,12 @@
   text-align: center;
   border: 1px solid var(--border-product);
   border-radius: 10px;
+  height: 100%;
 }
 
 .product-img {
   border: 1px solid var(--border-product);
-  height: 60%;
-  margin: 1rem 0 2rem;
+  height: 100%;
 }
 
 img {
@@ -26,31 +30,55 @@ img {
   object-fit: fill;
 }
 
-.add-cart {
-  background-color: white;
-  border: 0;
-  border-radius: 0.5rem;
-  color: #111827;
-  font-size: 0.875rem;
-  font-weight: 600;
-  line-height: 1.25rem;
-  padding: 0.75rem 1rem;
-  text-align: center;
-  //   border: 1px solid var(--border-product);
-  //   text-decoration: none #d1d5db solid;
-  text-decoration-thickness: auto;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  cursor: pointer;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
+.add-to-cart {
+  display: flex;
 }
 
-.add-cart:hover {
-  background-color: rgb(249, 250, 251);
+.add-to-cart_counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.add-cart:focus {
-  outline: 2px solid transparent;
-  outline-offset: 2px;
+.add-to-cart_button,
+.add-to-cart_counter_button {
+  @include button-cart;
+}
+
+.add-to-cart_counter_button {
+  margin: 0 0.5rem;
+  padding: 0.2rem 0.5rem;
+}
+
+// .add-cart {
+//   background-color: white;
+//   border: 0;
+//   border-radius: 0.5rem;
+//   color: #111827;
+//   font-size: 0.875rem;
+//   font-weight: 600;
+//   line-height: 1.25rem;
+//   padding: 0.75rem 1rem;
+//   text-align: center;
+//   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+//   cursor: pointer;
+//   user-select: none;
+//   -webkit-user-select: none;
+//   touch-action: manipulation;
+// }
+
+// .add-cart:hover {
+//   background-color: rgb(249, 250, 251);
+// }
+
+// .add-cart:focus {
+//   outline: 2px solid transparent;
+//   outline-offset: 2px;
+// }
+
+// CARD
+
+.add-to-cart {
+  display: flex;
+  justify-content: space-between;
 }

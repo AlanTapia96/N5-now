@@ -4,11 +4,14 @@ import App from "./App";
 import store from "./store/store";
 import "./index.scss";
 import { Provider } from "react-redux";
+import NotifContextProvider from "./components/context/NotifContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <NotifContextProvider>
+        <App />
+      </NotifContextProvider>
     </Provider>
   </React.StrictMode>
 );

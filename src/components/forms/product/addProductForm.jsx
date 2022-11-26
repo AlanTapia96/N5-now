@@ -1,13 +1,15 @@
 import { useRef, useContext, useState } from "react";
+import { useDispatch } from "react-redux";
 import uuid from "react-uuid";
-// import { Button, Form } from "react-bootstrap";
-// import { TaskContext } from "../../context/TaskContext";
-// import { NotifContext } from "../../context/NotifContext";
+import { Button, Form } from "react-bootstrap";
+import { createProduct } from "../../../store/actions/productsActions";
+
 // import styles from "./taskForm.module.css";
 
-const addProductForm = () => {
-  // const { addTask } = useContext(TaskContext);
+const AddProductForm = () => {
   // const notify = useContext(NotifContext);
+  const dispatch = useDispatch();
+
   const form = useRef(null);
   const name = useRef(null);
   const price = useRef(null);
@@ -15,58 +17,48 @@ const addProductForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // addTask({
-    //   id: uuid(),
-    //   title: title.current.value,
-    //   description: description.current.value,
-    //   progress,
-    // });
+    const newProduct = {
+      id: uuid(),
+      name: name.current.value,
+      price: price.current.value,
+      stock: stock.current.value,
+    };
+
+    dispatch(createProduct(newProduct));
+
     // notify("Task added");
     form.current.reset();
-    // setProgress("default");
   };
 
   return (
-    <form onSubmit={handleSubmit} ref={form} className={styles.form}>
-      <h2 className={styles.h2}>Add Task</h2>
-      <div className={styles.formItem}>
+    <form onSubmit={handleSubmit} ref={form}>
+      <h2>Add Product</h2>
+      <div>
         <Form.Control
           type="text"
-          placeholder="Enter title"
+          placeholder="Enter name"
           required
-          ref={title}
+          ref={name}
         />
       </div>
-      <div className={styles.formItem}>
+      <div>
         <Form.Control
-          as="textarea"
-          ref={description}
+          type="text"
+          ref={price}
           required
-          placeholder="Enter description"
+          placeholder="Enter price"
         />
       </div>
-      <div className={styles.formItem}>
-        <Form.Select
-          onChange={(e) => {
-            setProgress(e.target.value);
-          }}
-          defaultValue={progress}
-        >
-          <option value="default" disabled>
-            Select progress
-          </option>
-          <option value="toDo">To do</option>
-          <option value="inProgress">In progress</option>
-          <option value="done">Done</option>
-        </Form.Select>
+      <div>
+        <Form.Control
+          type="text"
+          ref={stock}
+          required
+          placeholder="Enter stock"
+        />
       </div>
-      <div className={styles.formItem}>
-        <Button
-          disabled={progress === "default"}
-          className={styles.button}
-          variant="secondary"
-          type="submit"
-        >
+      <div>
+        <Button variant="secondary" type="submit">
           Add
         </Button>
       </div>
@@ -74,4 +66,4 @@ const addProductForm = () => {
   );
 };
 
-export default addProductForm;
+export default AddProductForm;
