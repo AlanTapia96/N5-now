@@ -1,15 +1,16 @@
 @import "../abstracts/mixins";
 
 .cart-container {
-  max-width: var(--max-width);
+  @include container;
+  margin-left: 1rem;
+  margin-right: 1rem;
   position: relative;
-  margin: 1.5rem 1rem;
 }
 
 .clean-cart {
   position: absolute;
-  top: 0;
-  right: 0rem;
+  left: 0;
+  right: 0;
   background-color: #ffffff;
   border: 2px solid rgba(0, 0, 0, 0.1);
   border-radius: 0.25rem;
@@ -33,11 +34,11 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  width: 70%;
+  width: 93%;
 
   .cart-product {
     width: 100%;
-    height: 15rem;
+    height: 20rem;
     padding: 2rem 0;
     display: flex;
     align-items: center;
@@ -45,10 +46,19 @@
     border-bottom: 1px solid lightgray;
 
     &-img {
-      border: 1px solid lightgray;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       width: 10rem;
       height: 100%;
       margin-right: 3rem;
+
+      img {
+        width: 100%;
+        height: 55%;
+        object-fit: cover;
+        border: 1px solid lightgray;
+      }
     }
 
     &-data {
@@ -66,6 +76,38 @@
 .remove-product {
   @include button-cart;
   position: absolute;
-  top: 0;
-  right: 1rem;
+}
+
+@media (min-width: 552px) {
+  .cart-container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .clean-cart {
+    top: 1rem;
+    left: unset;
+    right: 0;
+  }
+
+  .cart-list_container {
+    width: 70%;
+
+    .cart-product {
+      height: 15rem;
+
+      &-img {
+        img {
+          height: 100%;
+        }
+      }
+    }
+
+    .remove-product {
+      top: 0;
+      right: 1rem;
+    }
+  }
 }

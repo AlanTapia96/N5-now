@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 
 const ButtonCartNav = () => {
   const { cart } = useSelector((state) => state.cart);
-  console.log(cart);
 
   return (
     <>

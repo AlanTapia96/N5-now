@@ -1,5 +1,10 @@
+.navbar {
+  padding: 1rem 0;
+}
+
 .button-cart-container {
   position: absolute;
+  top: 1rem;
   right: 1.5rem;
   background-color: transparent;
 }
@@ -32,4 +37,10 @@
   position: relative;
   font-size: 0.7em;
   margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .button-cart-container {
+    right: 1.5rem;
+  }
 }

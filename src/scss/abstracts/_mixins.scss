@@ -23,3 +23,8 @@
     outline-offset: 2px;
   }
 }
+
+@mixin container {
+  max-width: var(--max-width);
+  margin: 1.5rem auto;
+}

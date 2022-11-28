@@ -7,8 +7,8 @@ export const NotifContext = createContext();
 export default function NotifContextProvider({ children }) {
   const notify = (message) => {
     toast.success(message, {
-      position: "top-right",
-      autoClose: 1000,
+      position: "bottom-right",
+      autoClose: 400,
       hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,

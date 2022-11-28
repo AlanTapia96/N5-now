@@ -1,0 +1,12 @@
+@import "../abstracts/mixins";
+
+.product-form-container {
+  @include container;
+  width: 75%;
+}
+
+@media (min-width: 768px) {
+  .product-form-container {
+    width: 50%;
+  }
+}

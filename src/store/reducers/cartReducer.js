@@ -3,8 +3,6 @@ const cartStorage =
     ? JSON.parse(localStorage.getItem("cartStorage"))
     : { cart: [], total: 0 };
 
-console.log("holas");
-
 const initialState = cartStorage;
 
 export function cartReducer(state = initialState, action) {
@@ -37,8 +35,6 @@ export function cartReducer(state = initialState, action) {
             ],
             total: state.total + price,
           };
-
-      localStorage.setItem();
     }
     case "REMOVE_PRODUCT": {
       const product = state.cart.find(

@@ -21,7 +21,7 @@ function App() {
     <>
       {isLoading ? (
         <PropagateLoader
-          className="spinner"
+          className="spinner mt-5"
           loading={isLoading}
           size={15}
           aria-label="Loading Spinner"
