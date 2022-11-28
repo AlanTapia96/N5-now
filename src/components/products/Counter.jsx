@@ -9,7 +9,7 @@ const Counter = ({ stock, amount, onAmount }) => {
       >
         -
       </button>
-      <p>{amount}</p>
+      <p className="mb-0">{amount}</p>
       <button
         type="button"
         className="add-to-cart_counter_button"

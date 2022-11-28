@@ -31,7 +31,11 @@ export function cartReducer(state = initialState, action) {
             ...state,
             cart: [
               ...state.cart,
-              { ...currentProduct, amount: 1, totalPrice: price },
+              {
+                ...currentProduct,
+                amount: currentProduct.amount,
+                totalPrice: price,
+              },
             ],
             total: state.total + price,
           };

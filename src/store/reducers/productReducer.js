@@ -21,7 +21,6 @@ export const productReducer = (state = [], action) => {
 
   if (action.type === "CREATE_PRODUCT") {
     const newProduct = action.payload;
-    console.log(newProduct);
     return [...state, newProduct];
   }
 

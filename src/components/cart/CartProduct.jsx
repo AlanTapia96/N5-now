@@ -1,5 +1,5 @@
 import ButtonRemoveProduct from "./ButtonRemoveProduct";
-import { currencyConverter } from "../helper/helper";
+import { currencyConverter } from "../../helper/helper";
 
 export const CartProduct = ({ product }) => {
   const { name, amount, totalPrice } = product;

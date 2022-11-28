@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { currencyConverter } from "../helper/helper";
+import { currencyConverter } from "../../helper/helper";
 import ButtonCleanCart from "./ButtonCleanCart";
 import CartList from "./CartList";
 

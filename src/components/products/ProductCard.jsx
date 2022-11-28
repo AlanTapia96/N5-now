@@ -1,4 +1,4 @@
-import { currencyConverter } from "../helper/helper";
+import { currencyConverter } from "../../helper/helper";
 import AddToCartContainer from "./AddToCartContainer";
 
 const ProductCard = ({ product }) => {

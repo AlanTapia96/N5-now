@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useDispatch } from "react-redux";
 import { removeProduct } from "../../store/actions/cartActions";
+import { updateAmount } from "../../store/actions/productsActions";
 import { NotifContext } from "../context/NotifContext";
 
 const ButtonRemoveProduct = ({ product }) => {
@@ -9,6 +10,7 @@ const ButtonRemoveProduct = ({ product }) => {
 
   const handleCleanCart = () => {
     dispatch(removeProduct(product));
+    dispatch(updateAmount({ ...product, amount: product.amount }));
     notify("Product removed");
   };
 

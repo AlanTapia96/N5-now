@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { memo, useContext } from "react";
+import { useDispatch } from "react-redux";
 import { addToCart } from "../../store/actions/cartActions";
 import { updateAmount } from "../../store/actions/productsActions";
 import { NotifContext } from "../context/NotifContext";
