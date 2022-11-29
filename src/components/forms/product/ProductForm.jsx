@@ -5,8 +5,6 @@ import { Button, Form } from "react-bootstrap";
 import { createProduct } from "../../../store/actions/productsActions";
 import { NotifContext } from "../../context/NotifContext";
 
-// import styles from "./taskForm.module.css";
-
 const ProductForm = () => {
   const notify = useContext(NotifContext);
   const dispatch = useDispatch();
