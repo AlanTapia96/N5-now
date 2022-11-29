@@ -8,7 +8,7 @@ const ProductCard = ({ product }) => {
       <div className="product">
         <h4 className="product-title">{name}</h4>
         <div className="product-img">
-          <img />
+          <img alt={name} />
         </div>
         <p className="product-price mb-1">Price: {currencyConverter(price)}</p>
         <p className="product-stock">Stock: {stock} </p>
