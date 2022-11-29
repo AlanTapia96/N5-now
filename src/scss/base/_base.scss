@@ -4,6 +4,6 @@ body {
 }
 
 button[disabled] {
-  background-color: rgb(242, 240, 240);
-  cursor: not-allowed;
+  background-color: rgb(242, 240, 240) !important;
+  cursor: not-allowed !important;
 }
