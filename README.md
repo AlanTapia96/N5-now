@@ -3,7 +3,7 @@ El componente App.jsx realiza la carga inicial de productos de mi app. En el cas
 El componente ProductsContainer tiene código comentado ya que es la forma (en borrador) en la que implamentaría añadir un producto y mostrarlo en el listado de productos:
 - POST para guardar productos.
 - GET al cargar nuevamente el componente, el cual traería ese nuevo producto creado.
-Implementaria el hook useMemo también para enviar una request en caso de que sea necesario (en el caso de tener paginacion o que se agregue algún producto desde el form (podría ser con un flag en navigator o algo por el estilo).
+Implementaria useMemo o alguna otra manera para no enviar requests en caso de que no sea necesario (en el caso de tener paginacion o que se agregue algún producto desde el form (podría ser con un flag en navigator o algo por el estilo).
 
 Comentarios
 - Pendiente Unit tests. Conocimientos básicos, no cuento con mucha experiencia, me encuentro estudiandoló.
